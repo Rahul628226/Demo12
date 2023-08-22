@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .ship {
+            background-color: darkgray;
+            color: white;
+            text-align: left;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .shipitem1 {
+            text-align: left;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .addressBook {
+            background-color: rgb(15, 168, 142);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .button1 {
+            background-color: rgb(228, 137, 9);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .button2 {
+            background-color: rgb(250, 247, 244);
+            color: rgb(9, 8, 8);
+            text-align: left;
+            padding: 15px;
+            border-radius: 10px;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card text-center" style="width: 900px; height: 500px;">
+        <div class="card-body">
+            <h4 class="ship">1. Shipment/Pick Up Location</h4>
+            <div class="shipitem1">
+                <h6>SHIPMENT-1 ITEM(s)</h6>
+                <h6>DSC-T90</h6>
+            </div>
+
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <h4 class="addressBook">ADDRESS BOOK</h4>
+                </div>
+                <div class="shipitem1">
+                    <h6>COUNTRY/REGION</h6>
+                </div>
+                <div class="col">
+                    <select id="countrySelect" style="width: 800px;">
+                        <option value="" disabled selected>Select a country/region</option>
+                        <option value="India">India</option>
+                        <option value="country2">Country 2</option>
+                        <option value="country3">Country 3</option>
+                    </select>
+                </div>
+            </div>
+
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <button id="nextButton" style="width: 850px;" class="button1"
+                        onclick="validateRegion()">NEXT</button>
+                </div>
+            </div>
+
+            <hr>
+            <div class="row" style="padding-top: 5px;">
+                <div class="col">
+                    <button id="shippingButton" style="width: 400px;" class="button2" onclick="validateShipping()"
+                        hidden>Shipping Method</button>
+                </div>
+                <div class="col">
+                    <button id="reviewButton" style="width: 400px;" class="button2" onclick="validateReview()"
+                        hidden>Final Review</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function validateRegion() {
+            var countrySelect = document.getElementById("countrySelect");
+            var nextButton = document.getElementById("nextButton");
+
+            if (countrySelect.value === "") {
+                alert("Please select a country/region before proceeding.");
+            } else {
+                // alert("Success! You can proceed to the next step.");
+
+                shippingButton.removeAttribute("hidden");
+
+            }
+
+
+        }
+
+        function validateShipping() {
+
+            var countrySelect = document.getElementById("countrySelect");
+            if (countrySelect.value === "") {
+                alert("Please select a country/region before proceeding.");
+            } else {
+
+
+                //open dialogue
+
+                var address = window.prompt("Enter your address:");
+
+
+                // Display the collected information
+                var message = "Shipping Details:\n";
+
+                // reviewButton.removeAttribute("hidden");
+
+                if (address.value = "") {
+                    alert("Please select a address");
+                }
+                else {
+
+                    reviewButton.removeAttribute("hidden");
+                }
+
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>
